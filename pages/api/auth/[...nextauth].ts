@@ -22,10 +22,10 @@ export const authOptions: AuthOptions = {
             clientSecret: process.env.GOOGLE_SECRET as string,
         }),
         CredentialsProvider({
-            name: "Credentials",
+            name: "credentials",
             credentials: {
-                email: { label: "Email", type: "text" },
-                password: { label: "Password", type: "password" },
+                email: { label: "email", type: "text" },
+                password: { label: "password", type: "password" },
             },
             async authorize(credentials) {
                 //Check if credentials are valid
@@ -46,10 +46,10 @@ export const authOptions: AuthOptions = {
                 }
 
                 //Check if password is valid
-                const isValid = await bcrypt.compare(credentials.password, user.hashedPassword)
+                const isCorrectPassword  = await bcrypt.compare(credentials.password, user.hashedPassword)
 
                 //Throw error if password is invalid
-                if(!isValid){
+                if(!isCorrectPassword){
                     throw new Error("Invalid credentials")
                 }
 
@@ -60,6 +60,7 @@ export const authOptions: AuthOptions = {
     pages: {
         signIn: "/",
     },
+    debug:  process.env.NODE_ENV === "development",
     session: {
         strategy: "jwt",
     },

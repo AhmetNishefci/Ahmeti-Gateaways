@@ -61,7 +61,7 @@ const baseLabelClasses = `
     top-5
     z-10
     origin-[0]
-    left-4
+    ${formatPrice ? 'left-8' : 'left-4'}
     peer-placeholder-shown:scale-100
     peer-placeholder-shown:translate-y-0
     peer-focus:scale-75

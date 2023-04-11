@@ -2,10 +2,18 @@
 
 import Container from "../Container"
 import AirBnbLogo from "./AirBnbLogo"
+import Categories from "./Categories"
 import Search from "./Search"
 import UserMenu from "./UserMenu"
+import { SafeUser } from "@/app/types"
 
-const Navbar = () => {
+interface NavbarProps {
+    currentUser: SafeUser | null
+}
+
+const Navbar = ({
+    currentUser
+}:NavbarProps) => {
     return (
         <div className="
                 fixed 
@@ -24,10 +32,11 @@ const Navbar = () => {
                     md:gap-0">
                 <AirBnbLogo/>
                 <Search/>
-                <UserMenu/>
+                <UserMenu currentUser={currentUser}/>
           </div>
         </Container>
             </div>
+            <Categories/>
         </div>
     )
 }
