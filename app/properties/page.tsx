@@ -5,8 +5,10 @@ import EmptyState from "../components/EmptyState"
 import PropertiesClient from "./PropertiesClient"
 
 const PropertiesPage = async () => {
+    // get current user
     const currentUser = await getCurrentUser()
 
+    // check if user is logged in
     if(!currentUser) {
         return (
             <ClientOnly>
@@ -18,10 +20,12 @@ const PropertiesPage = async () => {
         )
     }
 
+    // get user listings
     const listings = await getListings({
         userId: currentUser.id
     })
 
+    // check if user has any listings
     if(!listings?.length) {
         return (
             <ClientOnly>
@@ -33,6 +37,7 @@ const PropertiesPage = async () => {
         )
     }
 
+    // return properties
     return (
         <ClientOnly>
             <PropertiesClient 

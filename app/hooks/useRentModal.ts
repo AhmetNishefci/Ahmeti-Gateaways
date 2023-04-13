@@ -6,7 +6,7 @@ interface RentModalStore {
     closeRentModal: () => void
 }
 
-//
+// this function is used to create a rent modal
 const useRentModal = create<RentModalStore>((set) => ({
     isRentModalOpen: false,
     openRentModal: () => set({ isRentModalOpen: true }),

@@ -31,7 +31,7 @@ const Modal = ({
 }: ModalProps) => {
     const [showModal, setShowModal] = useState(isOpen)
 
-    
+    // if the modal is open, show the modal
     useEffect(() => {
         setShowModal(isOpen)
     }, [isOpen])

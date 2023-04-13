@@ -37,6 +37,7 @@ const LoginModal = () => {
         }
     })
 
+    // handle login
     const onSubmit: SubmitHandler<FieldValues> =  (data) => {
         setLoadingTrue()
       
@@ -45,7 +46,6 @@ const LoginModal = () => {
             redirect: false,
         })
             .then((callback) => {
-                console.log('callback: ', callback)
                 setLoadingFalse()
                 if (callback?.ok) {
                     closeLoginModal()
@@ -58,11 +58,13 @@ const LoginModal = () => {
             })      
     }
 
+    // close login modal and open register modal
     const closeLoginOpenRegisterModal = useCallback(() => {
         closeLoginModal()
         openRegisterModal()
     },[closeLoginModal, openRegisterModal])
 
+    // body content
     const bodyContent = (
         <div className='flex flex-col gap-4'>
             <Heading title='Welcome back' subtitle='Login to your account!' />
@@ -86,6 +88,7 @@ const LoginModal = () => {
         </div>
     )
 
+    // footer content
     const footerContent = (
         <div className='flex flex-col gap-4 mt-3'>
             <hr />

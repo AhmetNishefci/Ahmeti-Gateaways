@@ -1,12 +1,16 @@
 import prisma from '@/app/libs/prismadb';
 import getCurrentUser from './getCurrentUser';
 
+// this function is used to get the current user's favorite listings
 export default async function getFavoriteListings() {
     try {
+        // get the current user
         const currentUser = await getCurrentUser();
 
+        //  if there is no user, return an empty array
         if(!currentUser) return [];
 
+        // find the favorite listings
         const favoriteListings = await prisma.listing.findMany({
             where: {
                 id: {
@@ -15,6 +19,7 @@ export default async function getFavoriteListings() {
             }
         });
 
+        // return the favorite listings
         const safeFavoriteListings = favoriteListings.map(favoriteListing => ({
             ...favoriteListing,
             createdAt: favoriteListing.createdAt.toString(),

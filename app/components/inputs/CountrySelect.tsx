@@ -20,6 +20,8 @@ const CountrySelect = ({
     value,
     onChange
 }:CountrySelectProps) => {
+
+    // get all countries
     const {getAllCountries} = useCountries()
 
     return (

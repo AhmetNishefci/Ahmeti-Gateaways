@@ -6,7 +6,7 @@ interface RegisterModalStore {
     closeRegisterModal: () => void
 }
 
-//
+// this function is used to create a register modal
 const useRegisterModal = create<RegisterModalStore>((set) => ({
     isRegisterModalOpen: false,
     openRegisterModal: () => set({ isRegisterModalOpen: true }),

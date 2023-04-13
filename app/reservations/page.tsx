@@ -7,8 +7,10 @@ import ReservationsClient from "./ReservationsClient";
 import TripsClient from "../trips/TripsClient";
 
 const ReservationsPage = async () => {
+    // get current user
     const currentUser = await getCurrentUser();
 
+    // check if user is logged in
     if (!currentUser) {
         return (
             <ClientOnly>
@@ -20,10 +22,12 @@ const ReservationsPage = async () => {
         );
     }
 
+    // get user reservations
     const reservations = await getReservations({
         authorId: currentUser.id
     })
 
+    // check if user has any reservations
     if (!reservations?.length) {
         return (
             <ClientOnly>
@@ -35,6 +39,7 @@ const ReservationsPage = async () => {
         );
     }
 
+    // return reservations
     return (
         <ClientOnly>
             <ReservationsClient 

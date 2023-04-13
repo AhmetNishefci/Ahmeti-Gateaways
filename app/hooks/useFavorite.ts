@@ -10,6 +10,7 @@ interface IUseFavorite {
     currentUser: SafeUser | null | undefined;
 }
 
+// this function is used to toggle a listing as a favorite
 const useFavorite = ({
     listingId,
     currentUser
@@ -17,15 +18,18 @@ const useFavorite = ({
     const router = useRouter();
     const { openLoginModal } = useLoginModal();
 
-    const hasFavorited = useMemo(() => {
+    // check if the listing is a favorite
+    const isListingFavorited = useMemo(() => {
     const list = currentUser?.favoriteIds || [];
 
         return list.includes(listingId);
     },[ currentUser, listingId ]);
 
+    // toggle the favorite
     const toggleFavorite = useCallback(async (e: React.MouseEvent<HTMLDivElement>) => {
         e.stopPropagation();
 
+        // if there is no user, open the login modal
         if(!currentUser){
             openLoginModal();
             return;
@@ -34,7 +38,7 @@ const useFavorite = ({
         try{
             let request
 
-            if(hasFavorited){
+            if(isListingFavorited){
                 request = () => axios.delete(`/api/favorites/${listingId}`);
                 toast.error("Removed from favorites!");
         } else {
@@ -48,10 +52,10 @@ const useFavorite = ({
         } catch(error){
             toast.error("Something went wrong");
         }  
-    },[ currentUser, listingId, hasFavorited, openLoginModal, router ]);
+    },[ currentUser, listingId, isListingFavorited, openLoginModal, router ]);
 
     return {
-        hasFavorited,
+        isListingFavorited,
         toggleFavorite
     }
 }

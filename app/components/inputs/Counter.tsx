@@ -17,10 +17,12 @@ const Counter = ({
     onChange
 }: CounterProps) => {
 
+    // this function is used to increment the value
     const increment = useCallback(() => {
         onChange(value + 1)
     },[ value, onChange ])
 
+    // this function is used to decrement the value
     const decrement = useCallback(() => {
         if(value === 1) return
 

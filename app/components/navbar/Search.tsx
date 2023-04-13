@@ -17,6 +17,7 @@ const Search = () => {
     const checkOutDate = params?.get('checkOutDate')
     const guestCount = params?.get('guestCount')
 
+    // get location label
     const locationLabel = useMemo(() => {
         if (locationValue) {
             const country = getCountryByValue(locationValue as string)
@@ -25,6 +26,7 @@ const Search = () => {
         return 'Anywhere'
     },[ locationValue, getCountryByValue ])
 
+    // get duration label
     const durationLabel = useMemo(() => {
         if (checkInDate && checkOutDate) {
             const checkIn = new Date(checkInDate as string)
@@ -36,6 +38,7 @@ const Search = () => {
         return 'Any Week'
     },[ checkInDate, checkOutDate])
 
+    // get guest label
     const guestLabel = useMemo(() => {
         if (guestCount) {
             return `${guestCount} ${+guestCount > 1 ? 'guests' : 'guest'}`

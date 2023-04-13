@@ -30,6 +30,7 @@ const UserMenu = ({
 
     const {value: isMenuOpen, setTrue: openMenu, setFalse: closeMenu, toggle: toggleMenu} = useBoolean(false)
 
+    // handle rent modal
     const onHandleRentModal = useCallback(() => {
         if(!currentUser){
             return openLoginModal()

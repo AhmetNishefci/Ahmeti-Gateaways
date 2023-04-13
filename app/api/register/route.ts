@@ -2,9 +2,12 @@ import prisma from '@/app/libs/prismadb'
 import bcrypt from 'bcrypt'
 import { NextResponse } from 'next/server'
 
+// this function is used to register a user
 export async function POST(request: Request) {
 
+    // get the body
     const body = await request.json()
+
     //Get data from request body
     const { email, name, password } = body
 
@@ -20,5 +23,6 @@ export async function POST(request: Request) {
         }
     })
 
+    // return the user
     return NextResponse.json(user)
 }

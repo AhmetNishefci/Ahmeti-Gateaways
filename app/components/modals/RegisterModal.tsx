@@ -35,6 +35,7 @@ const RegisterModal = () => {
         }
     })
 
+    // handle register
     const onSubmit: SubmitHandler<FieldValues> =  (data) => {
         setLoadingTrue()
       
@@ -52,11 +53,13 @@ const RegisterModal = () => {
          })           
     }
 
+    // close register modal and open login modal
     const closeRegisterOpenLoginModal = useCallback(() => {
         openLoginModal()
         closeRegisterModal()
     },[openLoginModal, closeRegisterModal])
 
+    // modal body content
     const bodyContent = (
         <div className='flex flex-col gap-4'>
             <Heading title='Welcome to Airbnb' subtitle='Create an account!' />
@@ -88,6 +91,7 @@ const RegisterModal = () => {
         </div>
     )
 
+    // modal footer content
     const footerContent = (
         <div className='flex flex-col gap-4 mt-3'>
             <hr />

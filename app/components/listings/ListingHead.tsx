@@ -21,8 +21,11 @@ const ListingHead = ({
     id,
     currentUser
 }:ListingHeadProps) => {
+
+    // get country by value
     const { getCountryByValue } = useCountries()
 
+    // get location
     const location = getCountryByValue(locationValue)
 
     return (

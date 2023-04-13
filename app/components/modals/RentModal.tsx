@@ -75,10 +75,12 @@ const RentModal = () => {
         })
     }
 
+    // handle next step
     const onNextStep = () => {
         setCurrentStep((prevStep) => prevStep + 1)
     }
 
+    // handle previous step
     const onPreviousStep = () => {
         if(currentStep === STEPS.CATEGORY) {
             closeRentModal()
@@ -87,6 +89,7 @@ const RentModal = () => {
         setCurrentStep((prevStep) => prevStep - 1)
     }
 
+    // handle submit
     const onSubmitForm: SubmitHandler<FieldValues> =  (data) => {
         if(currentStep !== STEPS.PRICE) {
             onNextStep()
@@ -111,6 +114,7 @@ const RentModal = () => {
             })
     }
 
+    // handle action label
     const actionLabel = useMemo(() => {
         if (currentStep === STEPS.PRICE) {
             return 'Submit'
@@ -118,6 +122,7 @@ const RentModal = () => {
         return 'Next'
     }, [currentStep])
 
+    // handle secondary action label
     const secondaryActionLabel = useMemo(() => {
         if (currentStep === STEPS.CATEGORY) {
             return 'Cancel'
@@ -125,6 +130,7 @@ const RentModal = () => {
         return 'Back'
     },[currentStep])
 
+    // handle body content
     let bodyContent = (
         <div className="flex flex-col gap-8">
             <Heading 
@@ -153,6 +159,7 @@ const RentModal = () => {
         </div>
     )
 
+    // handle location step
     if (currentStep === STEPS.LOCATION) {
         bodyContent = (
             <div className="flex flex-col gap-8">
@@ -171,6 +178,7 @@ const RentModal = () => {
         )
     }
 
+    // handle info step
     if (currentStep === STEPS.INFO) {
         bodyContent = (
             <div className="flex flex-col gap-8">
@@ -202,6 +210,7 @@ const RentModal = () => {
         )
     }
 
+    // handle images step
     if (currentStep === STEPS.IMAGES) {
         bodyContent = (
             <div className="flex flex-col gap-8">
@@ -217,6 +226,7 @@ const RentModal = () => {
         )
     }
 
+    // handle description step
     if (currentStep === STEPS.DESCRIPTION) {
         bodyContent = (
             <div className="flex flex-col gap-8">
@@ -245,6 +255,7 @@ const RentModal = () => {
         )
     }
 
+    // handle price step
     if (currentStep === STEPS.PRICE) {
         bodyContent = (
             <div className="flex flex-col gap-8">

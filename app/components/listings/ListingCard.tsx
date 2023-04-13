@@ -29,10 +29,14 @@ const ListingCard = ({
     currentUser
 }: ListingCardProps) => {
     const router = useRouter()
+
+    // get country by value
     const { getCountryByValue } = useCountries()
 
+    // get location
     const location = getCountryByValue(listingData.locationValue)
 
+    // handle delete listing
     const handleCancel = useCallback((element: React.MouseEvent<HTMLButtonElement>) => {
         element.stopPropagation()
         if(disabled) return
@@ -40,6 +44,8 @@ const ListingCard = ({
         onAction?.(actionId)
     }, [ disabled, onAction, actionId])
 
+
+    // get listing price
     const listingprice = useMemo(() => {
         if(reservation) {
             return reservation.totalPrice
@@ -48,6 +54,7 @@ const ListingCard = ({
         return listingData.price
     },[ reservation, listingData.price ])
 
+    // get reservation date
     const reservationDate = useMemo(() => {
         if(!reservation) return null
 

@@ -22,6 +22,7 @@ const TripsClient = ({
 
     const [deletingId, setDeletingId] = useState<string | null>('')
 
+    // handle delete listing
     const onDeleteProperty = useCallback((reservationId: string) => {
         setDeletingId(reservationId)
 

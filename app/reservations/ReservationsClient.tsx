@@ -21,6 +21,7 @@ const ReservationsClient = ({
     const router = useRouter()
     const [deletingId, setDeletingId] = useState<string | null>('')
 
+    // handle delete reservation
     const onDeleteReservation = useCallback((reservationId: string) => {
         setDeletingId(reservationId)
 

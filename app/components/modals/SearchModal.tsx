@@ -41,6 +41,7 @@ const SearchModal = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
     }),[location])
 
+    // handle previous step
     const onPreviousStep = useCallback(() => {
         if(step === STEPS.LOCATION) {
             closeSearchModal()
@@ -49,10 +50,12 @@ const SearchModal = () => {
         }
     },[ step, closeSearchModal ])
 
+    // handle next step
     const onNextStep = useCallback(() => {
             setStep(step + 1) 
     },[ step ])
 
+    // handle submit
     const onSubmit = useCallback(() => {
         if (step !== STEPS.INFO) {
             return onNextStep()
@@ -94,6 +97,7 @@ const SearchModal = () => {
          closeSearchModal,
          router ])
 
+         // action label
          const actionLabel = useMemo(() => {
                 if( step === STEPS.INFO) {
                     return 'Search'
@@ -101,6 +105,7 @@ const SearchModal = () => {
                 return 'Next'
          },[ step ])
 
+         // secondary action label
          const secondaryActionLabel = useMemo(() => {
                 if(step === STEPS.LOCATION) {
                     return 'Cancel'
@@ -108,6 +113,7 @@ const SearchModal = () => {
                 return 'Back'
          },[ step ])
 
+         // body content
          let bodyContent = (
             <div className="flex flex-col gap-8">
                 <Heading 
@@ -123,6 +129,7 @@ const SearchModal = () => {
             </div>
          )
 
+        //  if step is info
             if(step === STEPS.INFO) {
                 bodyContent = (
                     <div className="flex flex-col gap-8">
@@ -152,6 +159,7 @@ const SearchModal = () => {
                 )
             }
 
+            // if step is date
             if(step === STEPS.DATE) {
                 bodyContent = (
                     <div className="flex flex-col gap-8">

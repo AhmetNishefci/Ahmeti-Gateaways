@@ -14,7 +14,7 @@ const HeartButton = ({
     listingId,
     currentUser
 }: HeartButtonProps) => {
-   const { hasFavorited, toggleFavorite } = useFavorite({
+   const { isListingFavorited, toggleFavorite } = useFavorite({
          listingId,
          currentUser
    })
@@ -41,7 +41,7 @@ const HeartButton = ({
                 <AiFillHeart
                     size={24}
                     className={
-                    hasFavorited ? 'fill-rose-500' : 'fill-neutral-500/70'
+                    isListingFavorited ? 'fill-rose-500' : 'fill-neutral-500/70'
                     }
                 />
         </div>

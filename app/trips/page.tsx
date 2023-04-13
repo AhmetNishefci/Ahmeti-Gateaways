@@ -5,8 +5,10 @@ import EmptyState from "../components/EmptyState"
 import TripsClient from "./TripsClient"
 
 const TripsPage = async () => {
+    // get current user
     const currentUser = await getCurrentUser()
 
+    // check if user is logged in
     if(!currentUser) {
         return (
             <ClientOnly>
@@ -18,10 +20,12 @@ const TripsPage = async () => {
         )
     }
 
+    //  get user reservations
     const reservations = await getReservations({
         userId: currentUser.id
     })
 
+    // check if user has any reservations
     if(!reservations?.length) {
         return (
             <ClientOnly>
@@ -33,6 +37,7 @@ const TripsPage = async () => {
         )
     }
 
+    // return reservations
     return (
         <ClientOnly>
             <TripsClient 

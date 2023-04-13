@@ -39,6 +39,7 @@ const ListingClient = ({
     const {openLoginModal} = useLoginModal()
     const router = useRouter()
 
+    // get all dates that are booked
     const disabledDates = useMemo(() => {
         let dates: Date[] = []
 
@@ -57,6 +58,7 @@ const ListingClient = ({
     const [dateRange, setDateRange] = useState<Range>(initialDateRange)
     const [totalPrice, setTotalPrice] = useState(price)
 
+    // this function handled reservation creation
    const onCreateReservation = useCallback(() => {
         if(!currentUser) {
             openLoginModal()
@@ -105,6 +107,7 @@ const ListingClient = ({
         }
     },[ dateRange, price])
 
+    // get category by id
     const categoryById = useMemo(() => {
         return categories.find((item) => item.label === category)
     },[ category])

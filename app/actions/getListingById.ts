@@ -4,8 +4,10 @@ interface IParams {
     listingId?: string;
 }
 
+// this function is used to get a listing by id
 export default async function getListingById({ listingId }: IParams) {
     try{
+        // find the listing
         const listing = await prisma.listing.findUnique({
             where: {
                 id: listingId
@@ -15,8 +17,10 @@ export default async function getListingById({ listingId }: IParams) {
             }
         })
 
+        // if there is no listing, return null
         if(!listing) return null
 
+        // return the listing
         return {
             ...listing,
             createdAt: listing.createdAt.toString(),

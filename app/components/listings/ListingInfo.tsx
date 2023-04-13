@@ -33,8 +33,10 @@ const ListingInfo = ({
     category,
     locationValue
 }: ListingInfoProps) => {
+    // get country by value
     const { getCountryByValue } = useCountries()
 
+    // get country coordinates
     const countryCoordinates = useMemo(() => {
         return getCountryByValue(locationValue)?.latlng
     },[ locationValue, getCountryByValue])

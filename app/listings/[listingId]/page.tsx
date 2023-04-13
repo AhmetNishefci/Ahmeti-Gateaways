@@ -16,6 +16,7 @@ const ListingPage = async ({
     const reservations = await getReservations(params)
     const currentUser = await getCurrentUser()
 
+    // check if listing exists
     if(!listingById) {
         return (
             <ClientOnly>
@@ -23,6 +24,7 @@ const ListingPage = async ({
             </ClientOnly>
         )
     }
+    // return listing
     return (
        <ClientOnly>
             <ListingClient 

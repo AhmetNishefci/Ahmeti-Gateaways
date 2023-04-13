@@ -19,6 +19,7 @@ import Container from '../Container'
 import CategoryBox from '../CategoryBox'
 import { usePathname, useSearchParams } from 'next/navigation'
 
+// this is the categories that will be displayed on the home page
 export const categories = [
     {
         label: 'Beach',

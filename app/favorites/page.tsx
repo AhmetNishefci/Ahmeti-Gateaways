@@ -6,9 +6,13 @@ import getFavoriteListings  from  "../actions/getFavoriteListings";
 import FavoritesClient from "./FavoritesClient";
 
 const FavoritesPage  =  async  () => {
+    // get current user
     const currentUser  =  await  getCurrentUser();
+
+    // get favorite listings
     const favoriteListings  =  await  getFavoriteListings()
 
+    // check if user has any favorite listings
     if (!favoriteListings?.length) {
         return (
             <ClientOnly>
@@ -20,6 +24,7 @@ const FavoritesPage  =  async  () => {
         )
     }
 
+    // return favorites
     return (
         <ClientOnly>
             <FavoritesClient 

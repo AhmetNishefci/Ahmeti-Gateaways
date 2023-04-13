@@ -18,6 +18,8 @@ const ImageUpload = ({
     onChange,
     value,
 }:ImageUploadProps) => {
+
+    // this function is used to handle the upload
     const handleUpload = useCallback((imageSrc:any) => {
         onChange(imageSrc.info.secure_url)
     },[ onChange ])

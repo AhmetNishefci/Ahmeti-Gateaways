@@ -6,7 +6,7 @@ interface SearchModalStore {
     closeSearchModal: () => void
 }
 
-
+// this function is used to create a search modal
 const useSearchModal = create<SearchModalStore>((set) => ({
     isSearchModalOpen: false,
     openSearchModal: () => set({ isSearchModalOpen: true }),
