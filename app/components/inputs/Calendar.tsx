@@ -4,7 +4,7 @@ import { RangeKeyDict, Range, DateRange } from "react-date-range"
 
 import 'react-date-range/dist/styles.css'
 import 'react-date-range/dist/theme/default.css'
-
+   
 interface CalendarProps {
     dateRange: Range
     onChangeDateRange: (range: RangeKeyDict) => void

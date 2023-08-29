@@ -19,6 +19,7 @@ const CategoryBox = ({
     const router = useRouter()
     const params = useSearchParams()
 
+    // handle click
     const handleClick = useCallback(() => {
         let currentQuery = {}
 

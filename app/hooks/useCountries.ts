@@ -8,6 +8,7 @@ const formattedCountries = countries.map((country) => ({
     region: country.region,
 }))
 
+// this function is used to get the countries
 const useCountries = () => {
     const getAllCountries = () => formattedCountries
 
