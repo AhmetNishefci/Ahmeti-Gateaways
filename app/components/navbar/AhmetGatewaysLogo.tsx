@@ -3,7 +3,7 @@
 import Image from 'next/image'
 import { useRouter } from 'next/navigation'
 
-const AirBnbLogo = () => {
+const AhmetGatewaysLogo = () => {
     const router = useRouter()
 
     return (
@@ -11,10 +11,10 @@ const AirBnbLogo = () => {
             onClick={() => router.push('/')}
             alt='Logo' 
             className='hidden md:block cursor-pointer'
-            height='100' 
-            width='100' 
-            src='/images/airBnbLogo.png'/>
+            height='60' 
+            width='60' 
+            src='/images/ahmetGateways.jpg'/>
     )
 }
 
-export default AirBnbLogo
+export default AhmetGatewaysLogo

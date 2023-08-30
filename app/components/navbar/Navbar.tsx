@@ -1,7 +1,7 @@
 'use client'
 
 import Container from "../Container"
-import AirBnbLogo from "./AirBnbLogo"
+import AhmetGatewaysLogo from "./AhmetGatewaysLogo"
 import Categories from "./Categories"
 import Search from "./Search"
 import UserMenu from "./UserMenu"
@@ -30,7 +30,7 @@ const Navbar = ({
                     justify-between 
                     gap-3 
                     md:gap-0">
-                <AirBnbLogo/>
+                <AhmetGatewaysLogo/>
                 <Search/>
                 <UserMenu currentUser={currentUser}/>
           </div>

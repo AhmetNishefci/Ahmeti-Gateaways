@@ -118,7 +118,7 @@ const LoginModal = () => {
                     gap-2
                 '>
                     <div>
-                        First time using Airbnb?
+                        First time using Ahmet Gateways?
                     </div>
                     <div
                         onClick={closeLoginOpenRegisterModal} 
